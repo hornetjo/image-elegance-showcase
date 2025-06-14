@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Lightbox from './Lightbox';
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [currentCategory, setCurrentCategory] = useState('all');
 
   const galleryImages = [
