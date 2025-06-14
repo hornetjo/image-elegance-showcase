@@ -45,6 +45,66 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          ip_address: unknown | null
+          message: string
+          name: string
+          status: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          ip_address?: unknown | null
+          message: string
+          name: string
+          status?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          ip_address?: unknown | null
+          message?: string
+          name?: string
+          status?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      rate_limits: {
+        Row: {
+          action: string
+          count: number
+          created_at: string
+          id: string
+          identifier: string
+          window_start: string
+        }
+        Insert: {
+          action: string
+          count?: number
+          created_at?: string
+          id?: string
+          identifier: string
+          window_start?: string
+        }
+        Update: {
+          action?: string
+          count?: number
+          created_at?: string
+          id?: string
+          identifier?: string
+          window_start?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
