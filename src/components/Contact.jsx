@@ -10,7 +10,8 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ---- CHANGED: removed TypeScript type from parameter
+  const handleSubmit = (e) => {
     e.preventDefault();
     toast({
       title: "Message sent!",
