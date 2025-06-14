@@ -6,14 +6,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-interface BlogPost {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  featured_image: string;
-  created_at: string;
-}
+// Removed interface BlogPost - not needed in JS
 
 const Blog = () => {
   const { data: posts, isLoading, error } = useQuery({
@@ -26,11 +19,12 @@ const Blog = () => {
         .order('created_at', { ascending: false });
       
       if (error) throw error;
-      return data as BlogPost[];
+      return data; // removed: as BlogPost[]
     }
   });
 
-  const formatDate = (dateString: string) => {
+  // Remove type annotation on parameter
+  const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
