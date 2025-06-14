@@ -6,18 +6,10 @@ import { supabase } from '@/integrations/supabase/client';
 import Navigation from '@/components/Navigation';
 import { ArrowLeft } from 'lucide-react';
 
-interface BlogPostData {
-  id: string;
-  title: string;
-  slug: string;
-  content: string;
-  featured_image: string;
-  created_at: string;
-  updated_at: string;
-}
+// Removed interface BlogPostData - not needed in JS
 
 const BlogPost = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams();
 
   const { data: post, isLoading, error } = useQuery({
     queryKey: ['blog-post', slug],
@@ -32,12 +24,13 @@ const BlogPost = () => {
         .maybeSingle();
       
       if (error) throw error;
-      return data as BlogPostData | null;
+      return data; // no type assertion in JS
     },
     enabled: !!slug
   });
 
-  const formatDate = (dateString: string) => {
+  // Remove type annotation
+  const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',

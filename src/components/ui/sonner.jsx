@@ -9,7 +9,7 @@ const Toaster = (props) => {
 
   return (
     <Sonner
-      theme={theme} {/* removed type assertion */}
+      theme={theme}
       className="toaster group"
       toastOptions={{
         classNames: {
