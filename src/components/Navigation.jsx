@@ -6,13 +6,14 @@ const Navigation = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
-  const scrollToSection = (sectionId: string) => {
+  // FIX: Remove TypeScript type annotation
+  const scrollToSection = (sectionId) => {
     if (!isHomePage) {
       // If not on home page, navigate to home first
       window.location.href = `/#${sectionId}`;
       return;
     }
-    
+
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
